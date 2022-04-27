@@ -1,0 +1,22 @@
+<template>
+  <lightning-card title="Stop Watch">
+    <h3>{timer}</h3>
+    <lightning-button-group>
+      <lightning-button
+        variant="success"
+        label="Start"
+        onclick={actionHandler}
+      ></lightning-button>
+      <lightning-button
+        variant="destructive"
+        label="Stop"
+        onclick={actionHandler}
+      ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Reset"
+        onclick={actionHandler}
+      ></lightning-button>
+    </lightning-button-group>
+  </lightning-card>
+</template>

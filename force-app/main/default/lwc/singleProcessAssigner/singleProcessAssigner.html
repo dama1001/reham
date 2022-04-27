@@ -1,0 +1,22 @@
+<template>
+  <template if:true={processAssignerStatusHandler}>
+    <div class="slds-p-around_medium lgc-bg" onclick={tileClickHandler}>
+      <lightning-tile label="Process Detail :" href="/path/to/somewhere">
+        <p class="slds-truncate" title={processassigner.User_Name__c}>
+          {getUserName}
+        </p>
+        <p class="slds-truncate" title={processassigner.Process_Name__c}>
+          {getProcessName}
+        </p>
+        <!--
+        <p class="slds-truncate" title={junction.Process_Step__c}>
+          {getProcessStepName}
+        </p>
+        -->
+        <p class="slds-truncate" title={processassigner.Status__c}>
+          {getProcessstatus}
+        </p>
+      </lightning-tile>
+    </div>
+  </template>
+</template>

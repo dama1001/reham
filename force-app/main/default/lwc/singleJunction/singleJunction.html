@@ -1,0 +1,19 @@
+<template>
+  {getCheckJunction}
+  <template if:true={checkJunction}>
+    <div class="slds-p-around_medium lgc-bg" onclick={tileClickHandler}>
+      <lightning-tile label="Process Detail :" href="/path/to/somewhere">
+        <p class="slds-truncate" title={junction.User_Name__c}>{getUserName}</p>
+        <p class="slds-truncate" title={junction.Process_Name__c}>
+          {getProcessName}
+        </p>
+        <p class="slds-truncate" title={junction.Process_Step__c}>
+          {getProcessStepName}
+        </p>
+        <p class="slds-truncate" title={junction.Status__c}>
+          Status : {junction.Status__c}
+        </p>
+      </lightning-tile>
+    </div>
+  </template>
+</template>

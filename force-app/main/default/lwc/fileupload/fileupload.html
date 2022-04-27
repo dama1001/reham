@@ -1,0 +1,64 @@
+<template>
+    <lightning-card title="File Upload in LWC">
+        <div class="slds-p-horizontal_x-small">
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div class="slds-p-left_medium">
+                        <h1>recordId = {recordId}</h1>
+                        <lightning-file-upload 
+                            label="Attach File" name="uploadFile" accept={acceptedFormats} record-id={recordId} 
+                            onuploadfinished={handleUploadFinished} multiple
+                        >
+                        </lightning-file-upload>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br />
+            
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div class="slds-p-left_medium">
+                        <h2>Uploaded Files : </h2>
+                        <br />
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                aria-label="Example Default Base Table Of Opportunities">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="File Name">File Name</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="File Type">File Type</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="File Size">File Size</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={lstAllFiles} for:item="fileIterator">
+                                    <tr class="slds-hint-parent" key={fileIterator.id}>
+                                        <th data-label="Opportunity Name" scope="row">
+                                            <lightning-icon icon-name="doctype:image" size="small" title="Image"></lightning-icon>
+                                            {fileIterator.title}
+                                        </th>
+                                        <td data-label="Account Name">
+                                            <div class="slds-truncate" title="Cloudhub">
+                                                {fileIterator.fileType}
+                                            </div>
+                                        </td>
+                                        <td data-label="Account Name">
+                                            <div class="slds-truncate" title="Cloudhub">
+                                                {fileIterator.size} Byte
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,74 @@
+<!--
+    <template>
+  <lightning-card title={user_name}>
+    <lightning-progress-indicator
+      current-step="step-1"
+      type="path"
+      variant="base"
+    >
+      <template for:each={steps} for:item="step">
+        <lightning-progress-step
+          label={step.label}
+          value={step.value}
+          key={step.label}
+        ></lightning-progress-step>
+      </template>
+    </lightning-progress-indicator>
+  </lightning-card>
+</template>
+-->
+
+<template>
+  <lightning-card title="All Assigned Projects">
+    <!--<lightning-input
+      label="User Id"
+      onchange={userNameChangeHandler}
+    ></lightning-input>-->
+    <lightning-input
+      label="Please Enter Full User Name"
+      onchange={userNameChangeHandler}
+    ></lightning-input>
+    <p>
+      <!--Getting Junctions-->
+      <!--<lightning-button
+        label="Track Assigned Process"
+        onclick={getJunctions}
+      ></lightning-button>-->
+
+      <!--Getting Process Assigner-->
+      <lightning-button
+        class="track-assigned-process"
+        label="Track Assigned Process"
+        onclick={getProcessAssigner}
+      ></lightning-button>
+    </p>
+
+    <lightning-layout>
+      <lightning-layout-item size="12" padding="around-small">
+        <ul>
+          <template if:true={responseReceived}>
+            <!--Loop For Junction-->
+            <!--<template for:each={junctions} for:item="junction">
+              <li key={junction.id} style="padding: 10px">
+                <c-single-junction
+                  junction={junction}
+                  ontileclick={onTileSelectHandler}
+                ></c-single-junction>
+              </li>
+            </template>-->
+
+            <!--Loop For Process Assigner-->
+            <template for:each={processAssigners} for:item="processassigner">
+              <li key={processassigner.id} style="padding: 10px">
+                <c-single-process-assigner
+                  processassigner={processassigner}
+                  ontileclick={onTileSelectHandler}
+                ></c-single-process-assigner>
+              </li>
+            </template>
+          </template>
+        </ul>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>
